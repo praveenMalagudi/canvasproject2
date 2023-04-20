@@ -1,22 +1,22 @@
 const canvas = document.getElementById('canvas');
 const c = canvas.getContext('2d');
 const radius = 30;
-const hw= canvas.width / 2;
+const halfWidth = canvas.width / 2;
 function line(){
     c.strokeStyle = 'black';
     c.lineWidth = 1;
     c.beginPath();
-    c.moveTo(hw, 0);
+    c.moveTo(halfWidth , 0);
     c.lineTo( halfWidth, canvas.height);
     c.stroke();
 }
-line();
+ line();
 canvas.addEventListener('mousemove', (event) => {
   const x = event.clientX - canvas.offsetLeft;
   const y = event.clientY - canvas.offsetTop;
   c.clearRect(0, 0, canvas.width, canvas.height);
   if (x < halfWidth) {
-    const X = hw- x;
+    const X = halfWidth - x;
     c.beginPath();
     c.arc(x, y, radius, 0, Math.PI * 2);
     c.strokeStyle = 'black';
